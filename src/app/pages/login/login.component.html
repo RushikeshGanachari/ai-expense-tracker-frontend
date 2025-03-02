@@ -1,0 +1,100 @@
+<!-- <div class="flex min-h-screen items-center justify-center bg-gray-100">
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-2xl font-semibold text-center text-gray-700">Login</h2>
+  
+      <form class="mt-4" (ngSubmit)="onLogin()">
+        <div class="mb-4">
+          <label class="block text-gray-600">Email</label>
+          <input type="email" [(ngModel)]="email" name="email"
+            class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300" required />
+        </div>
+  
+        <div class="mb-4">
+          <label class="block text-gray-600">Password</label>
+          <input type="password" [(ngModel)]="password" name="password"
+            class="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300" required />
+        </div>
+  
+        <button type="submit"
+          class="w-full bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+          Login
+        </button>
+  
+        <p class="text-center text-gray-600 mt-4">
+          Don't have an account?
+          <a routerLink="/signup" class="text-blue-500">Sign up</a>
+        </p>
+      </form>
+    </div>
+  </div>
+  
+-->
+<!-- 
+<div class="login-container">
+    <mat-card>
+      <mat-card-title>Login</mat-card-title>
+      <mat-card-content>
+        <form (submit)="onLogin()">
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="email" name="email" required />
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [(ngModel)]="password"  [type]="hide() ? 'password' : 'text'" />
+            <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" type="submit" class="full-width">Login</button>
+        </form>
+        <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+   -->
+
+   <div class="auth-container">
+    <mat-card class="auth-card">
+      <mat-card-title>Login</mat-card-title>
+      <form (ngSubmit)="onLogin()">
+        
+        <mat-form-field  class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+  
+        <mat-form-field class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput   [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="password" required>
+          <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" class="full-width" type="submit">Login</button>
+  
+        <p class="auth-link">
+          Don't have an account? <a routerLink="/signup">Sign up</a>
+        </p>
+        
+      </form>
+    </mat-card>
+  </div>
+  

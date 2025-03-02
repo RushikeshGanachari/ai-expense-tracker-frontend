@@ -1,0 +1,46 @@
+// .login-container,
+// .register-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: 100vh;
+// }
+
+// mat-card {
+//   width: 350px;
+//   padding: 20px;
+// }
+
+// .full-width {
+//   width: 100%;
+//   margin-bottom: 15px;
+// }
+
+// p {
+//   text-align: center;
+//   margin-top: 10px;
+// }
+
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .auth-card {
+    width: 400px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .auth-link {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
