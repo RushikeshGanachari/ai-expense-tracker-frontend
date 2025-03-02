@@ -1,0 +1,40 @@
+<div class="auth-container">
+    <mat-card class="auth-card">
+      <mat-card-title>Sign Up</mat-card-title>
+      <form (ngSubmit)="onSignup()">
+        
+        <mat-form-field  class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" [(ngModel)]="name" name="name" required>
+        </mat-form-field>
+  
+        <mat-form-field  class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="email" name="email" required>
+        </mat-form-field>
+  
+        <mat-form-field  class="full-width">
+          <mat-label>Password</mat-label>
+          <input matInput  [type]="hide() ? 'password' : 'text'"  [(ngModel)]="password" name="password" required>
+          <button
+              mat-icon-button
+              matSuffix
+              type="button"
+              (click)="clickEvent($event)"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide()"
+            >
+              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" class="full-width" type="submit">Sign Up</button>
+  
+        <p class="auth-link">
+          Already have an account? <a routerLink="/dashboard">Login</a>
+        </p>
+  
+      </form>
+    </mat-card>
+  </div>
+  
