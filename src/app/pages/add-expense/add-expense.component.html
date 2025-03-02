@@ -1,0 +1,53 @@
+<div class="add-expense-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Add Expense</span>
+  </mat-toolbar>
+
+  <mat-card>
+    <mat-card-title>Enter Expense Details</mat-card-title>
+    <mat-card-content>
+      <!-- Expense Description -->
+      <mat-form-field class="full-width">
+        <mat-label>Expense Description</mat-label>
+        <input matInput [(ngModel)]="expense.description" (blur)="onDescriptionChange()">
+      </mat-form-field>
+
+      <!-- AI Suggested Category -->
+      <p *ngIf="suggestedCategory" class="ai-suggestion">
+        AI Suggested: <strong>{{ suggestedCategory }}</strong>
+      </p>
+
+      <!-- Category Selection -->
+      <mat-form-field class="full-width">
+        <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="expense.category">
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Amount Input -->
+      <mat-form-field class="full-width">
+        <mat-label>Amount (₹)</mat-label>
+        <input matInput type="number" [(ngModel)]="expense.amount">
+      </mat-form-field>
+
+      <!-- Date Picker -->
+      <mat-form-field class="full-width">
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="expense.date">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <!-- Save Button -->
+      <button mat-raised-button color="primary" class="full-width" (click)="saveExpense()">
+        Save Expense
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
