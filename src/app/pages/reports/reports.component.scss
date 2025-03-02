@@ -1,0 +1,41 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .section {
+    margin-bottom: 24px;
+  }
+  
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+  
+  .insight-text {
+    margin-top: 16px;
+    color: #333;
+  }
+  
+  .insight-placeholder {
+    margin-top: 16px;
+    color: #777;
+    font-style: italic;
+  }
+  
+  .chart-container {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

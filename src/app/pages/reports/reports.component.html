@@ -1,0 +1,58 @@
+<div class="reports-container">
+  <!-- Toolbar -->
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span>Reports & Insights</span>
+  </mat-toolbar>
+
+  <!-- <h2 class="title">Reports & Insights</h2> -->
+
+  <!-- Expense Summary -->
+  <mat-card class="section">
+    <mat-card-header>
+      <mat-card-title>Expense Summary</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Total Spent: <strong>₹{{ totalSpent }}</strong></p>
+      <mat-list>
+        <mat-list-item *ngFor="let expense of expenses">
+          <span>{{ expense.description }} - ₹{{ expense.amount }} ({{ expense.category }})</span>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Expense Breakdown Chart -->
+  <mat-card class="section">
+    <mat-card-header>
+      <mat-card-title>Expense Breakdown</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="chart-container">
+        <canvas #expenseChart></canvas>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- AI Insights -->
+  <mat-card class="section">
+    <mat-card-header>
+      <mat-card-title>AI Spending Insights</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <button mat-raised-button color="primary" (click)="getAIInsights()" [disabled]="loading">
+        Generate Insights
+      </button>
+
+      <div class="spinner-container" *ngIf="loading">
+        <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+      </div>
+
+      <!-- Display AI insights -->
+      <div class="insight-text" *ngIf="insights" [innerHTML]="formattedInsights"></div>
+      <p class="insight-placeholder" *ngIf="!insights && !loading">Click the button to generate AI insights.</p>
+    </mat-card-content>
+  </mat-card>
+</div>
