@@ -75,10 +75,22 @@ export class AddExpenseComponent {
       date: new Date(this.expense.date!).toISOString() // Ensure backend stores it correctly
     };
 
-    this.expenseService.addExpense(formattedExpense).subscribe(() => {
-      this.snackBar.open('Expense Added Successfully!', 'OK', { duration: 3000 });
-      this.router.navigate(['/dashboard']);
-    });
+    // this.expenseService.addExpense(formattedExpense).subscribe(() => {
+    //   this.snackBar.open('Expense Added Successfully!', 'OK', { duration: 3000 });
+    //   this.router.navigate(['/dashboard']);
+    // });
+    this.expenseService.addExpense(formattedExpense).subscribe({
+      next:(data:any)=>{
+        if(data.success == true){
+          this.snackBar.open('Expense Added Successfully!', 'OK', { duration: 3000 });
+            this.router.navigate(['/dashboard']);
+        }
+      },
+      error:(error)=>{
+        console.error(error)
+      }
+    })
+
   }
 
   goBack() {
